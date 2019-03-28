@@ -3,9 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include <cstdlib>
-#include <cstdlib>
 #include <ctime>
-
 #include <time.h>
 
 //оформление +- пытался сделать похожим :)
