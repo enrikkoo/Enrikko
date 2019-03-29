@@ -8,7 +8,7 @@ int main (){
 	setlocale(LC_ALL, "Russian");
 	
     int maswtab;
-	cout <<"¬ведите масштаб?(100 или 50)" << endl;
+	cout <<"¬ведите масштаб :(100 или 50)" << endl;
     cin >> maswtab;
 
     if (maswtab == 100 ||maswtab == 50) {}
