@@ -42,11 +42,15 @@ int main (){
     cout <<"Введите букву листа 50го масштаба N-36-79-* " << endl;
     cin >> abvg;
     cout <<"Начальная номенклатура : "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<endl;}
+    cout <<"" << endl;
     
-    
-    cout<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<endl;
-    cout<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<endl;
-    cout<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<endl;
+    if (abvg == "A"){
+    	abvg6="Б";
+	}
+
+    cout   <<naz1<<"-"<<nom1<<"-"<<msto1<<"-"<<abvg1<<"                   "<<naz2<<"-"<<nom2<<"-"<<msto2<<"-"<<abvg2<<"                   "<<naz3<<"-"<<nom3<<"-"<<msto3<<"-"<<abvg3<<endl;
+    cout   <<naz4<<"-"<<nom4<<"-"<<msto4<<"-"<<abvg4<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz6<<"-"<<nom6<<"-"<<msto6<<"-"<<abvg6<<endl;
+    cout   <<naz7<<"-"<<nom7<<"-"<<msto7<<"-"<<abvg7<<"                   "<<naz8<<"-"<<nom8<<"-"<<msto8<<"-"<<abvg8<<"                   "<<naz9<<"-"<<nom9<<"-"<<msto9<<"-"<<abvg9<<endl;
 
     
 
