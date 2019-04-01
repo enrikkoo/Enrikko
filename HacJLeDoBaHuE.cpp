@@ -46,6 +46,14 @@ public:
 	~Asymmetric_protocol() {}
 
 };
+class The_Needham_Schroeder_protocol2 : public Asymmetric_protocol
+{
+public:
+	The_Needham_Schroeder_protocol2() {}
+	void key2() {}
+	~The_Needham_Schroeder_protocol2() {}
+
+};
 
 int main()
 {
