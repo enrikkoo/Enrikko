@@ -3,6 +3,7 @@
 #include <string>
 #include <Windows.h>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 
@@ -58,7 +59,7 @@ int main (){
     
     cout <<"Введите номер листа N-*-79-A " << endl;
     cin >> nom;
-    if (nom > 36 ) 
+    if (nom > 60 ) 
 	{    
 	cout << "Ошибка!Неверный номер листа!"<<endl;
 	exit(0);
@@ -138,7 +139,7 @@ if (abvg == "Г"){
 
 
 for (int i=0;i<n+1;i++){                 
-	if (abvg == "А" && msto!=vert1[i] && msto!=gor2[i] ){                                            //стандарт
+	if (abvg == "А" && msto!=vert1[i] && msto!=gor2[i]  || abvg == "А" && msto==144){                                            //стандарт для А
 	msto1=msto-13;
 	msto2=msto-12;
 	msto3=msto-12;
@@ -147,13 +148,65 @@ for (int i=0;i<n+1;i++){
 	msto7=msto-1;
 	msto8=msto;
 	msto9=msto;
+	naz1=naz2=naz3=naz4=naz5=naz6=naz;
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "А" && msto==1){                                            //исключение 1А
+	msto1=144;
+	msto2=133;
+	msto3=133;
+	msto4=12;
+	msto6=1;
+	msto7=12;
+	msto8=1;
+	msto9=1;
+	naz1=naz2=naz3=nazv[t+1];
+	naz4=naz5=naz6=naz;
+
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "А" && msto==gor2[i] || abvg == "А" && msto==12){                                            //не стандарт для А 2
+	msto1=msto+131;
+	msto2=msto+132;
+	msto3=msto+132;
+	msto4=msto-1;
+	msto6=msto;
+	msto7=msto-1;
+	msto8=msto;
+	msto9=msto;
+	naz1=naz2=naz3=nazv[t+1];
+	naz4=naz5=naz6=naz;
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "А" && msto==vert1[i] || abvg == "А" && msto==133){                                            //не стандарт для А 1
+	msto1=msto-1;
+	msto2=msto-12;
+	msto3=msto-12;
+	msto4=msto+11;
+	msto6=msto;
+	msto7=msto+11;
+	msto8=msto;
+	msto9=msto;
+	naz1=naz2=naz3=naz4=naz5=naz6=naz;
 }
 else {
 	continue;
 	}
 }
 for (int i=0;i<n+1;i++){  
-	if (abvg == "Б" && msto!=vert3[i] && msto!=gor2[i]){                                            //стандарт
+	if (abvg == "Б" && msto!=vert3[i] && msto!=gor2[i] || abvg == "Б" && msto==133){                                            //стандарт для Б
 	msto1=msto-12;
 	msto2=msto-12;
 	msto3=msto-11;
@@ -162,13 +215,65 @@ for (int i=0;i<n+1;i++){
 	msto7=msto;
 	msto8=msto;
 	msto9=msto+1;
+	naz1=naz2=naz3=naz4=naz5=naz6=naz;	
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "Б" && msto==12){                                            //исключение 12Б
+	msto1=144;
+	msto2=144;
+	msto3=133;
+	msto4=12;
+	msto6=1;
+	msto7=12;
+	msto8=12;
+	msto9=1;
+	naz1=naz2=naz3=nazv[t+1];
+	naz4=naz5=naz6=naz;
+
+
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "Б" && msto==gor2[i] || abvg == "Б" && msto==1){                                            //не стандарт для Б 2
+	msto1=msto+132;
+	msto2=msto+132;
+	msto3=msto+133;
+	msto4=msto;
+	msto6=msto+1;
+	msto7=msto;
+	msto8=msto;
+	msto9=msto+1;
+	naz1=naz2=naz3=nazv[t+1];
+	naz4=naz5=naz6=naz;
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "Б" && msto==vert3[i] || abvg == "Б" && msto==144){                                            //не стандарт для Б 3
+	msto1=msto-12;
+	msto2=msto-12;
+	msto3=msto-23;
+	msto4=msto;
+	msto6=msto-11;
+	msto7=msto;
+	msto8=msto;
+	msto9=msto-11;
 }
 else {
 	continue;
 	}
 }
 for (int i=0;i<n+1;i++){ 
-	if (abvg == "В" && msto!=vert1[i] && msto!=gor4[i] ){                                          //стандарт
+	if (abvg == "В" && msto!=vert1[i] && msto!=gor4[i] || abvg == "В" && msto==12){                                          //стандарт для В
 	msto1=msto-1;
 	msto2=msto;
 	msto3=msto;
@@ -177,13 +282,64 @@ for (int i=0;i<n+1;i++){
 	msto7=msto+11;
 	msto8=msto+12;
 	msto9=msto+12;
+	naz1=naz2=naz3=naz4=naz5=naz6=naz;
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "В" && msto==133){                                            //исключение 133В
+	msto1=144;
+	msto2=133;
+	msto3=133;
+	msto4=144;
+	msto6=133;
+	msto7=12;
+	msto8=1;
+	msto9=1;
+	naz1=naz2=naz3=naz;
+	naz4=naz5=naz6=nazv[t-1];
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "В" && msto==vert1[i] || abvg == "В" && msto==1 ){                                            //не стандарт для В 1
+	msto1=msto+11;
+	msto2=msto;
+	msto3=msto;
+	msto4=msto+11;
+	msto6=msto;
+	msto7=msto+23;
+	msto8=msto+12;
+	msto9=msto+12;
+	naz1=naz2=naz3=naz4=naz5=naz6=naz;
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "В" && msto==gor4[i] || abvg == "В" && msto==144){                                            //не стандарт для В 4
+	msto1=msto-1;
+	msto2=msto;
+	msto3=msto;
+	msto4=msto-1;
+	msto6=msto;
+	msto7=msto-133;
+	msto8=msto-132;
+	msto9=msto-132;
+		naz1=naz2=naz3=naz;
+	naz4=naz5=naz6=nazv[t-1];
 }
 else {
 	continue;
 	}
 }
 for (int i=0;i<n+1;i++){ 
-	if (abvg == "Г" && msto!=vert3[i] && msto!=gor4[i]){                                          //стандарт
+	if (abvg == "Г" && msto!=vert3[i] && msto!=gor4[i] || abvg == "Г" && msto==1 ){                      //стандарт для Г
 	msto1=msto;
 	msto2=msto;
 	msto3=msto+1;
@@ -192,43 +348,94 @@ for (int i=0;i<n+1;i++){
 	msto7=msto+12;
 	msto8=msto+12;
 	msto9=msto+13;
+	naz1=naz2=naz3=naz4=naz5=naz6=naz;
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "Г" && msto==144){                                            //исключение 144Г
+	msto1=144;
+	msto2=133;
+	msto3=133;
+	msto4=144;
+	msto6=133;
+	msto7=12;
+	msto8=12;
+	msto9=1;
+		naz1=naz2=naz3=naz;
+	naz4=naz5=naz6=nazv[t-1];
+	
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "Г" && msto==vert3[i] || abvg == "Г" && msto==12){                                            //не стандарт для Г 3
+	msto1=msto;
+	msto2=msto;
+	msto3=msto-11;
+	msto4=msto;
+	msto6=msto-11;
+	msto7=msto+12;
+	msto8=msto+12;
+	msto9=msto+1;
+	naz1=naz2=naz3=naz4=naz5=naz6=naz;
+}
+else {
+	continue;
+	}
+}
+for (int i=0;i<n+1;i++){                 
+	if (abvg == "Г" && msto==gor4[i] || abvg == "Г" && msto==133){                                            //не стандарт для Г 4
+	msto1=msto;
+	msto2=msto;
+	msto3=msto+1;
+	msto4=msto;
+	msto6=msto+1;
+	msto7=msto-132;
+	msto8=msto-132;
+	msto9=msto-131;
+	naz1=naz2=naz3=naz;
+	naz4=naz5=naz6=nazv[t-1];
+
 }
 else {
 	continue;
 	}
 }
 
+
+
 for (int i=0;i<n+1;i++){  
-	if (abvg == "А" || abvg == "В" && msto==vert1[i]){               //-цифра
+	if ((abvg == "А" || abvg == "В") && (msto==vert1[i] || msto==1 || msto==133)){               //-цифра
 	nom1=nom-1;
 	nom2=nom-1;
 	nom3=nom-1;
 }
 }
 for (int i=0;i<n+1;i++){ 
-	if (abvg == "Б" || abvg == "Г" && msto==vert3[i]){                   //-цифра
-	nom1=nom-1;
-	nom2=nom-1;
-	nom3=nom-1;
+	if (abvg == "Б" || abvg == "Г" && (msto==vert3[i]|| msto==12 || msto==144)){                   //+цифра
+	nom4=nom+1;
+	nom5=nom+1;
+	nom6=nom+1;
 }
 }
 for (int i=0;i<n+1;i++){ 
 	if (abvg == "А" || abvg == "Б" && msto==gor2[i]){                    //след буква
-	nom1=nom-1;
-	nom2=nom-1;
-	nom3=nom-1;
+
 }
 }
 for (int i=0;i<n+1;i++){ 
 	if (abvg == "В" || abvg == "Г" && msto==gor4[i]){                      //пред буква
-	nom1=nom-1;
-	nom2=nom-1;
-	nom3=nom-1;
+
 }
 }
 
 
-	if (maswtab == 100){                                                           //стандарт
+	if (maswtab == 100){                                                           //стандарт 100
 	msto1=msto-13;
 	msto2=msto-12;
 	msto3=msto-11;
@@ -238,7 +445,7 @@ for (int i=0;i<n+1;i++){
 	msto8=msto+12;
 	msto9=msto+13;
 	}	
-	for (int i=0;i<n+1;i++){                                                      //1 линия
+	for (int i=0;i<n+1;i++){                                                      //1 линия 100
     if (msto == vert1[i] && maswtab == 100){
     msto1=msto-1;
 	msto2=msto-12;
@@ -254,7 +461,7 @@ for (int i=0;i<n+1;i++){
 	else {
 	continue;}
 	}
-	for (int i=0;i<n+1;i++){                                                     //2 линия
+	for (int i=0;i<n+1;i++){                                                     //2 линия1 100
     if (msto == gor2[i] && maswtab == 100){
     msto1=msto+131;
 	msto2=msto+132;
@@ -270,7 +477,7 @@ for (int i=0;i<n+1;i++){
 	else {
 	continue;}
 	}
-	for (int i=0;i<n+1;i++){                                                    //3 линия
+	for (int i=0;i<n+1;i++){                                                    //3 линия 100 
     if (msto == vert3[i] && maswtab == 100){
     msto1=msto-13;
 	msto2=msto-12;
@@ -286,7 +493,7 @@ for (int i=0;i<n+1;i++){
 	continue;
 	}
 	}	
-	for (int i=0;i<n+1;i++){                                                   //4 линия
+	for (int i=0;i<n+1;i++){                                                   //4 линия 100
     if (msto == gor4[i] && maswtab == 100){
     msto1=msto-13;
 	msto2=msto-12;
@@ -377,15 +584,23 @@ for (int i=0;i<n+1;i++){
 
 
 if (maswtab == 50){
-    cout   <<naz<<"-"<<nom1<<"-"<<msto1<<"-"<<abvg1<<"                   "<<naz<<"-"<<nom<<"-"<<msto2<<"-"<<abvg2<<"                   "<<naz<<"-"<<nom<<"-"<<msto3<<"-"<<abvg3<<endl;
-    cout   <<naz<<"-"<<nom2<<"-"<<msto4<<"-"<<abvg4<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto6<<"-"<<abvg6<<endl;
-    cout   <<naz<<"-"<<nom3<<"-"<<msto7<<"-"<<abvg7<<"                   "<<naz<<"-"<<nom<<"-"<<msto8<<"-"<<abvg8<<"                   "<<naz<<"-"<<nom<<"-"<<msto9<<"-"<<abvg9<<endl;
+    cout   <<naz1<<"-"<<nom1<<"-"<<msto1<<"-"<<abvg1<<"                   "<<naz2<<"-"<<nom<<"-"<<msto2<<"-"<<abvg2<<"                   "<<naz3<<"-"<<nom4<<"-"<<msto3<<"-"<<abvg3<<endl;
+    cout   <<naz<<"-"<<nom2<<"-"<<msto4<<"-"<<abvg4<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom5<<"-"<<msto6<<"-"<<abvg6<<endl;
+    cout   <<naz4<<"-"<<nom3<<"-"<<msto7<<"-"<<abvg7<<"                   "<<naz5<<"-"<<nom<<"-"<<msto8<<"-"<<abvg8<<"                   "<<naz6<<"-"<<nom6<<"-"<<msto9<<"-"<<abvg9<<endl;
 }
 if (maswtab == 100){
     cout   <<naz1<<"-"<<nom1<<"-"<<msto1<<"          "<<naz2<<"-"<<nom<<"-"<<msto2<<"         "<<naz3<<"-"<<nom4<<"-"<<msto3<<endl;
     cout   <<naz<<"-"<<nom2<<"-"<<msto4<<"          "<<naz<<"-"<<nom<<"-"<<msto<<"          "<<naz<<"-"<<nom5<<"-"<<msto6<<endl;
     cout   <<naz4<<"-"<<nom3<<"-"<<msto7<<"          "<<naz5<<"-"<<nom<<"-"<<msto8<<"          "<<naz6<<"-"<<nom6<<"-"<<msto9<<endl;
 }
+
+//  ofstream fout;
+//  fout.open("C:\kurs.txt");
+//  fout   <<naz<<"-"<<nom1<<"-"<<msto1<<"-"<<abvg1<<"                   "<<naz<<"-"<<nom<<"-"<<msto2<<"-"<<abvg2<<"                   "<<naz<<"-"<<nom<<"-"<<msto3<<"-"<<abvg3<<endl;
+//  fout   <<naz<<"-"<<nom2<<"-"<<msto4<<"-"<<abvg4<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto6<<"-"<<abvg6<<endl;
+//  fout   <<naz<<"-"<<nom3<<"-"<<msto7<<"-"<<abvg7<<"                   "<<naz<<"-"<<nom<<"-"<<msto8<<"-"<<abvg8<<"                   "<<naz<<"-"<<nom<<"-"<<msto9<<"-"<<abvg9<<endl;
+//
+//  fout.close();
 
 	return 0;
 }
