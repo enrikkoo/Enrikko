@@ -32,6 +32,25 @@ int main (){
     int m;
     char nazv[]= {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     
+    ifstream fin;
+    fin.open("C:\kurs.txt");
+    if (!fin) 
+ {
+ cout << "Файл не открыт\n\n"; 
+ }
+ else
+ {
+ cout << "Все ОК! Файл открыт!\n\n";
+
+fin>>naz;
+fin>>nom;
+fin>>msto;
+
+cout<<naz<<endl;
+cout<<nom<<endl;
+cout<<msto<<endl;
+ }
+ fin.close();
     
     if (maswtab == 100){                                                           //ввод начальных значений
     cout <<"Пример ввода для масштаба 1:100000 = N-36-79 " << endl;
@@ -54,8 +73,8 @@ int main (){
     if (maswtab == 50)	{                                                         //ввод начальных значений
     cout <<"Пример ввода для масштаба 1:50000 = N-36-79-A " << endl;
     
-	cout <<"Введите букву листа *-36-79-A " << endl;
-    cin >> naz;
+//	cout <<"Введите букву листа *-36-79-A " << endl;
+//    cin >> naz;
     
     cout <<"Введите номер листа N-*-79-A " << endl;
     cin >> nom;
@@ -594,7 +613,7 @@ if (maswtab == 100){
     cout   <<naz4<<"-"<<nom3<<"-"<<msto7<<"          "<<naz5<<"-"<<nom<<"-"<<msto8<<"          "<<naz6<<"-"<<nom6<<"-"<<msto9<<endl;
 }
 
-//  ofstream fout;
+
 //  fout.open("C:\kurs.txt");
 //  fout   <<naz<<"-"<<nom1<<"-"<<msto1<<"-"<<abvg1<<"                   "<<naz<<"-"<<nom<<"-"<<msto2<<"-"<<abvg2<<"                   "<<naz<<"-"<<nom<<"-"<<msto3<<"-"<<abvg3<<endl;
 //  fout   <<naz<<"-"<<nom2<<"-"<<msto4<<"-"<<abvg4<<"                   "<<naz<<"-"<<nom<<"-"<<msto<<"-"<<abvg<<"                   "<<naz<<"-"<<nom<<"-"<<msto6<<"-"<<abvg6<<endl;
